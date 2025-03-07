@@ -1,0 +1,10 @@
+{
+  "title": "Meu Primeiro Post",
+  "type": "text",
+  "content": "Este é um exemplo de conteúdo textual...",
+  "color": "#FF5733",
+  "position": {
+    "angle": 45,
+    "distance": 200
+  }
+}
