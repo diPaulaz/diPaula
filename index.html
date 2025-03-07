@@ -1,0 +1,62 @@
+﻿<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mapa de Conexões</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <canvas id="canvas"></canvas>
+    <div class="central-point" id="central"></div>
+    
+    <button id="add-content-button">+</button>
+    
+    <div id="add-content-form">
+        <h3>Adicionar Novo Conteúdo</h3>
+        <label for="content-title">Título:</label>
+        <input type="text" id="content-title" required>
+        
+        <div id="content-type">
+            <label>Tipo de Conteúdo:</label><br>
+            <input type="radio" name="type" value="text" id="type-text" checked> <label for="type-text">Texto</label>
+            <input type="radio" name="type" value="image" id="type-image"> <label for="type-image">Imagem</label>
+            <input type="radio" name="type" value="video" id="type-video"> <label for="type-video">Vídeo</label>
+            <input type="radio" name="type" value="music" id="type-music"> <label for="type-music">Música</label>
+        </div>
+        
+        <div id="text-content" class="type-specific" style="display: block;">
+            <label for="text-data">Seu texto:</label>
+            <textarea id="text-data" rows="4" style="width: 100%;"></textarea>
+        </div>
+        
+        <div id="image-content" class="type-specific">
+            <label for="image-url">URL da imagem:</label>
+            <input type="text" id="image-url">
+        </div>
+        
+        <div id="video-content" class="type-specific">
+            <label for="video-url">URL do vídeo (YouTube):</label>
+            <input type="text" id="video-url">
+        </div>
+        
+        <div id="music-content" class="type-specific">
+            <label for="music-url">URL da música:</label>
+            <input type="text" id="music-url">
+        </div>
+        
+        <button id="save-content">Salvar</button>
+        <button id="cancel-add">Cancelar</button>
+    </div>
+    
+    <div id="content-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2 id="modal-title"></h2>
+            <div id="modal-content"></div>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
