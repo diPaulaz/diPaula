@@ -110,12 +110,25 @@ function createContentPoint(id, title, contentType, contentData, color, position
 
 async function loadPosts() {
     try {
-        const response = await fetch('posts.json');
-        const data = await response.json();
+        console.log('Iniciando carregamento de posts...');
         
+        // Verifica se o posts.json existe
+        const response = await fetch('posts.json');
+        if (!response.ok) throw new Error('posts.json não encontrado');
+        console.log('posts.json carregado com sucesso');
+
+        const data = await response.json();
+        console.log('Lista de posts:', data.posts);
+
         for (const postPath of data.posts) {
+            console.log('Carregando:', postPath);
+            
             const postResponse = await fetch(postPath);
+            if (!postResponse.ok) throw new Error(`${postPath} não encontrado`);
+            
             const postData = await postResponse.json();
+            console.log('Post carregado:', postData);
+            
             createContentPoint(
                 postPath,
                 postData.title,
@@ -127,6 +140,7 @@ async function loadPosts() {
         }
     } catch (error) {
         console.error('Erro ao carregar posts:', error);
+        alert('Erro ao carregar conteúdo. Verifique o console para detalhes.');
     }
 }
 
